@@ -8,7 +8,6 @@
     <title>Note Keeper</title>
 
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
 </head>
 
 <body>
@@ -16,21 +15,27 @@
     <section>
 
         <div class="writer-container">
-            <form>
-                <input placeholder="Title" id="note-title" type="text">
+            <p id="note-state">New note</p>
+
+            <form id="note-form">
+                <input placeholder="Title" id="note-title" type="text" name="title">
                 <br><br>
-                <textarea placeholder="Text" id="note-text" type="text"></textarea>
+                <textarea placeholder="Text" id="note-text" type="text" name="text"></textarea>
             </form>
 
-            <button>Save</button>
+            <button id="submitBtn">Save</button>
         </div>
 
         <div class="note-container">
+            <div id="notes-info"></div>
 
+            <div id="notes-list"></div>
         </div>
 
     </section>
 
 </body>
+
+<script src="script.js"></script>
 
 </html>
