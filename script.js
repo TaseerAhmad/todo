@@ -21,7 +21,6 @@ submitBtn.onclick = () => {
     }
 
     createNoteSession(noteId);
-    //noteData['id'] = noteId;
 
     if (isNoteEmpty()) {
         alert('Can not save an empty note!');
@@ -33,7 +32,6 @@ submitBtn.onclick = () => {
 
     clearNoteSession();
     clearForm();
-    showNoteSaved();
 }
 
 function displayNote() {
@@ -67,7 +65,6 @@ function loadSavedNotes() {
     
             saveNoteToSession(key, noteFields[0], noteFields[1]);
             displayNote();
-            clearNoteSession();
         }
     });
 }
@@ -95,9 +92,9 @@ function attachNoteClickListener(noteItem) {
         }
 
         addSelectedItem(item.id)
-        item.setAttribute('rel', '1');
 
-        item.style.border = '4px solid black';
+        item.setAttribute('rel', '1');
+        item.style.border = '2.5px solid #212121';
     }
 }
 
@@ -110,14 +107,6 @@ function removeSelectedItem(id) {
 
 function addSelectedItem(id) {
     selectedNotes.push(id);
-}
-
-function showNoteSaved() {
-    const noteState = document.getElementById('note-state');
-    noteState.innerHTML = 'Note saved!';
-    setTimeout(() => {
-        noteState.innerHTML = 'New note';
-    }, 1500);
 }
 
 function clearForm() {
@@ -144,16 +133,12 @@ function getNoteId() {
 
     let key = window.localStorage.getItem('row-key');
 
-    // console.log('ROW-KEY' + ' ' + key);
-
     if (!key) {
         window.localStorage.setItem('row-key', '0')
     }
 
     key = window.localStorage.getItem('row-key');
     window.localStorage.setItem('row-key', ++key);
-
-    //console.log('ROW-KEY' + ' ' + window.localStorage.getItem('row-key'));
 
     return key++;
 }
@@ -180,15 +165,23 @@ function createNoteView(id) {
     titleView.classList.add('title');
     noteContainer.classList.add('note');
 
+    textView.style.wordBreak = 'break-word';
+    titleView.style.wordBreak = 'break-word';
+    titleView.style.fontWeight = 'bold';
+
     noteContainer.id = id;
     noteContainer.setAttribute('rel', '0');
 
     noteContainer.appendChild(titleView);
     noteContainer.appendChild(textView);
 
-    noteContainer.style.backgroundColor = 'grey'
-    noteContainer.style.width = '100%'
-    noteContainer.style.height = 'auto'
+    noteContainer.style.backgroundColor = '#e6e6e6';
+    noteContainer.style.width = '90%';
+    noteContainer.style.height = 'fit-content';
+    noteContainer.style.minHeight = '5%';
+    noteContainer.style.borderRadius = '0.6rem';
+    noteContainer.style.padding = '0.5rem';
+    noteContainer.style.boxShadow = '0 5px 10px rgb(0 0 0 / 0.2)'
 
     return noteContainer;
 }

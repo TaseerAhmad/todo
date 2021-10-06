@@ -1,10 +1,33 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 form {
     padding: 5%;
+
+}
+
+input[type=text],
+textarea[type=text],
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 576px) {
+    form {
+        padding: 0%;
+        margin: 0px;
+    }
 }
 
 #note-title {
@@ -24,21 +47,29 @@ form {
 
 #notes-info {
     position: sticky;
-    top: 5px;
-    margin: 1rem;
-    width: auto;
+    top: 10px;
+    margin: 0 auto;
+    width: 95%;
     height: 4rem;
-    background-color: yellow;
+    background-color: #f99f00;
 }
 
 #notes-list {
     display: flex;
     flex-direction: column;
-    /* background-color: aquamarine; */
     width: 100%;
     height: 100%;
     gap: 16px;
-    margin: 1rem;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    align-items: center;
+}
+
+@media screen and (max-width: 576px) {
+    #notes-list {
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
 }
 
 .note-container {
@@ -46,35 +77,52 @@ form {
     flex-direction: column;
     margin-left: 35%;
     width: 100%;
-    height: auto;
-    /* TODO LOOK INTO IT */
-    /* background-color: black; */
+    height: 100%;
 }
 
 .writer-container>button {
     width: 75%;
     padding: 5%;
     margin: 0 auto;
+    background-color: #e6e6e6;
+    border-radius: 1rem;
+    outline: 0;
+}
 
+
+@media screen and (max-width: 576px) {
+    .writer-container {
+        width: 50%;
+        /* padding: 500px; */
+    }
 }
 
 .writer-container>p {
     padding-left: 5%;
     font-size: larger;
     font-weight: bolder;
+
 }
 
 .writer-container {
     position: fixed;
-    background-color: gray;
-    width: 25%;
+    background-color: #f99f00;
+    width: 35%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    min-width: 35%;
+    min-width: 30%;
     max-width: 35%;
+    overflow: auto;
 }
+
+@media screen and (min-width: 576px) {
+    .writer-container {
+        min-width: 35%;
+    }
+}
+
 
 section {
     display: flex;
